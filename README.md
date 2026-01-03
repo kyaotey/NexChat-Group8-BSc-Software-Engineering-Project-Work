@@ -1,14 +1,4 @@
-Perfect — thanks for the screenshot 👍
-Based on **your actual project structure**, I’ve **rewritten and aligned the README** so it matches **exactly what your repo contains**:
 
-Folders you have:
-
-* `websocket` → **Server**
-* `websocket.client` → **Client 1**
-* `websocket.client2` → **Client 2**
-* `websocket.sln` → Solution file
-
-You can **copy-paste this directly** into `README.md`.
 
 ---
 
@@ -190,17 +180,3 @@ This project is for **academic purposes**.
 
 ---
 
-### ✅ Final reassurance
-
-✔ Matches your folder names
-✔ Matches your solution file
-✔ Clean for lecturers
-✔ Professional GitHub look
-
-If you want, I can:
-
-* Add **architecture diagram text**
-* Add **use-case section**
-* Simplify wording further (very exam-friendly)
-
-Just tell me 👌
