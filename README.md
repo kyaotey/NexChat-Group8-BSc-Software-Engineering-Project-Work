@@ -1,84 +1,121 @@
 Here's the professional `README.md` file for NexChat following the style of your example:
 
 ```markdown
-# NexChat - Distributed Communication System
-
-**Name Meaning:**
-
-"Nex" comes from the Latin *nexus*, meaning "connection" or "link."
-
+NexChat - Distributed Communication System
+Name Meaning:
+"Nex" comes from the Latin nexus, meaning "connection" or "link."
 "Chat" represents real-time communication and messaging.
 
 A fully functional distributed chat system supporting group messaging, private messaging, and real-time communication across networks.
 
-## 🆕 **Latest Updates (v2.5)**
+Latest Updates (v2.5)
 
-### ✨ **New Features**
-- 🏛️ **Distributed Architecture**: Client-server model using WebSockets
-- 👥 **Group Management**: Create, join, and leave chat groups
-- 🔒 **Private Messaging**: Secure 1-on-1 communication between users
-- 📱 **Real-time Updates**: Instant message delivery with WebSocket connections
-- 🎯 **Delivery Acknowledgments**: WhatsApp-style ✓ (delivered) and ✓✓ (read) indicators
-- 🖥️ **Console Interface**: Clean, professional command-line interface
+New Features:
 
-### 🛡️ **Security & Reliability**
-- 🔒 **Secure Communication**: WebSocket with JSON message validation
-- 💓 **Heartbeat System**: Automatic fault detection with 30-second timeouts
-- 📊 **Message Queuing**: Offline message storage with automatic delivery
-- 🔐 **Session Management**: User connection tracking and state management
-- 🚫 **Input Validation**: Comprehensive message validation and sanitization
+Distributed Architecture: Client-server model using WebSockets
 
-### 🏗️ **Architecture Improvements**
-- 🏛️ **Client-Server Architecture**: Clear separation of concerns
-- 📡 **WebSocket Protocol**: Real-time bidirectional communication
-- 💾 **Persistent Storage**: JSON-based chat history
-- 🔄 **Async Programming**: Concurrent client handling with async/await
-- 📝 **Comprehensive Documentation**: Detailed setup and user guides
+Group Management: Create, join, and leave chat groups
 
-## Features
+Private Messaging: Secure 1-on-1 communication between users
 
-### Core Features
-- 👥 **Group Chat**: Real-time group messaging with multiple participants
-- 🔒 **Private Chat**: Secure 1-on-1 messaging between users
-- 🏷️ **Group Management**: Create, join, and leave groups with member tracking
-- 👑 **Admin Controls**: Group administration (kick, promote, delete)
-- 📊 **User Status**: Real-time online/offline status tracking
-- 🔔 **System Alerts**: Join/leave notifications and connection events
+Real-time Updates: Instant message delivery with WebSocket connections
 
-### Communication Features
-- ⚡ **Real-time Messaging**: Instant message delivery via WebSockets
-- 📨 **Message Ordering**: Chronological display with sequence numbers
-- ✅ **Delivery Status**: Visual indicators for sent, delivered, and read messages
-- 💾 **Chat History**: Persistent storage and retrieval of conversations
-- 🔍 **Message Search**: Browse and search through chat history
+Delivery Acknowledgments: WhatsApp-style ✓ (delivered) and ✓✓ (read) indicators
 
-### User Experience
-- 🎨 **Professional Interface**: Clean console-based user interface
-- 📱 **Responsive Design**: Dynamic menu positioning and layout
-- ⌨️ **Keyboard Navigation**: Intuitive command-based navigation
-- 📋 **Menu System**: Organized hierarchical menu structure
-- 🔄 **Auto-refresh**: Real-time display updates without manual refresh
+Console Interface: Clean, professional command-line interface
 
-### Admin Features
-- 🛡️ **Group Administration**: Manage group members and permissions
-- 🚫 **Member Management**: Kick users and assign admin roles
-- 🗑️ **Group Deletion**: Remove groups when necessary
-- 📈 **Activity Monitoring**: Track user connections and activity
-- 🔍 **System Overview**: View all groups and active users
+Security & Reliability:
 
-## Quick Start
+Secure Communication: WebSocket with JSON message validation
 
-### Prerequisites
-- .NET 6.0 SDK or higher
-- Windows/macOS/Linux with network connectivity
+Heartbeat System: Automatic fault detection with 30-second timeouts
 
-### Installation
+Message Queuing: Offline message storage with automatic delivery
 
-1. **Clone or download the project**
-   ```bash
-   git clone <repository-url>
-   cd NexChat
-   ```
+Session Management: User connection tracking and state management
+
+Input Validation: Comprehensive message validation and sanitization
+
+Architecture Improvements:
+
+Client-Server Architecture: Clear separation of concerns
+
+WebSocket Protocol: Real-time bidirectional communication
+
+Persistent Storage: JSON-based chat history
+
+Async Programming: Concurrent client handling with async/await
+
+Comprehensive Documentation: Detailed setup and user guides
+
+Features
+
+Core Features:
+
+Group Chat: Real-time group messaging with multiple participants
+
+Private Chat: Secure 1-on-1 messaging between users
+
+Group Management: Create, join, and leave groups with member tracking
+
+Admin Controls: Group administration (kick, promote, delete)
+
+User Status: Real-time online/offline status tracking
+
+System Alerts: Join/leave notifications and connection events
+
+Communication Features:
+
+Real-time Messaging: Instant message delivery via WebSockets
+
+Message Ordering: Chronological display with sequence numbers
+
+Delivery Status: Visual indicators for sent, delivered, and read messages
+
+Chat History: Persistent storage and retrieval of conversations
+
+Message Search: Browse and search through chat history
+
+User Experience:
+
+Professional Interface: Clean console-based user interface
+
+Responsive Design: Dynamic menu positioning and layout
+
+Keyboard Navigation: Intuitive command-based navigation
+
+Menu System: Organized hierarchical menu structure
+
+Auto-refresh: Real-time display updates without manual refresh
+
+Admin Features:
+
+Group Administration: Manage group members and permissions
+
+Member Management: Kick users and assign admin roles
+
+Group Deletion: Remove groups when necessary
+
+Activity Monitoring: Track user connections and activity
+
+System Overview: View all groups and active users
+
+Quick Start
+
+Prerequisites:
+
+.NET 6.0 SDK or higher
+
+Windows/macOS/Linux with network connectivity
+
+Installation:
+
+Clone or download the project
+
+text
+git clone <repository-url>
+cd NexChat
+
 
 2. **Set up the Server**
    ```bash
