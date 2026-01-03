@@ -87,3 +87,9 @@ Setup and Run Instructions
 Step 1: Clone the Repository
 
 Run the following command in your terminal or command prompt:
+git clone https://github.com/kyaotey/NexChat-Group8-BSc-Software-Engineering-Project-Work.git
+Navigate into the project folder:
+
+bash
+Copy code
+cd NexChat-Group8-BSc-Software-Engineering-Project-Work
