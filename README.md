@@ -1,220 +1,89 @@
-Here’s a **clean, complete, professional `README.md` file** that you can use for **your NexChat project** hosted at:
+NexChat – Distributed Communication System
 
-🔗 **[https://github.com/kyaotey/NexChat-Group8-BSc-Software-Engineering-Project-Work.git](https://github.com/kyaotey/NexChat-Group8-BSc-Software-Engineering-Project-Work.git)** ([GitHub][1])
+Group Project – BSc Software Engineering
+CSBC 311 – Distributed Systems
+Ghana Communication Technology University
 
-This README is written for your **BSc Software Engineering** course submission and includes **setup instructions**, **project details**, and **usage guide**.
+Project Overview
 
----
+NexChat (from “nexus” meaning connection and “chat” for messaging) is a distributed chat application designed to support both group messaging and private one-to-one communication among users connected over a network.
 
-```markdown
-# NexChat – Distributed Communication System
+The system simulates a real-world distributed environment where users communicate using message passing rather than shared memory. It demonstrates key distributed systems concepts such as active membership management, fault detection, message delivery reliability, and persistence.
 
-**Group Project – BSc Software Engineering**  
-**CSBC 311 – Distributed Systems**  
-**Ghana Communication Technology University**
+Core Features
 
----
+Messaging
 
-## 📌 Project Overview
+Group messaging (multicast)
 
-**NexChat** (from *nexus* meaning connection + *chat* for messaging) is a **distributed chat application** that supports:
-- **Group messaging (multicast)**  
-- **Private one-to-one messaging (unicast)**  
-- **Real-time communication across networked machines**
+Private one-to-one messaging (unicast)
 
-It demonstrates fundamental distributed systems concepts such as **message passing**, **active membership management**, **fault detection**, and **message delivery reliability**. :contentReference[oaicite:1]{index=1}
+Group Management
 
----
+Create groups
 
-## 🚀 Core Features
+Join and leave groups
 
-### ✅ Messaging
-- **Group Chat:** Real-time messaging within groups  
-- **Private Chat:** Direct communication between users
+Track active group members
 
-### 👥 Group Management
-- Create groups  
-- Join and leave groups  
-- Track active members
+Reliability and Distributed Features
 
-### 🔁 Reliability & Distributed Promises
-- Heartbeat based fault detection  
-- Offline message queuing  
-- Message delivery & read receipts  
-- Persistent chat history (JSON files) :contentReference[oaicite:2]{index=2}
+Heartbeat-based fault detection
 
----
+Online and offline user tracking
 
-## 📌 Technologies Used
+Offline message queuing and later delivery
 
-- **Language:** C# (.NET)  
-- **Protocol:** WebSockets  
-- **Data Storage:** JSON files  
-- **Architecture:** Client–Server distributed model :contentReference[oaicite:3]{index=3}
+Message delivery and read acknowledgments
 
----
+Persistent chat history using JSON files
 
-## 🗂 Project Structure
+Technologies Used
 
-```
+Programming Language: C# (.NET)
 
-NexChat/
-├── README.md
-├── Server/
-│   ├── Program.cs
-│   ├── Server.csproj
-│   └── ChatHistory/ (auto-created)
-├── Client/
-│   ├── Program.cs
-│   └── Client.csproj
-├── .gitignore
+Communication Protocol: WebSockets
 
-````
-> Both Server and Client are console applications using WebSockets. :contentReference[oaicite:4]{index=4}
+Data Storage: JSON files
 
----
+Architecture: Client–Server distributed model
 
-## 🛠 Prerequisites
+Project Structure
 
-Before running:
-- **.NET 6.0 SDK or higher**
-- Windows / macOS / Linux
-- For multi-machine setup: network connectivity and firewall configuration
+NexChat
 
----
+Server
 
-## 🏁 Setup & Run Instructions
+Program.cs
 
-### 🧱 1. Clone Repository
+Server.csproj
 
-```bash
-git clone https://github.com/kyaotey/NexChat-Group8-BSc-Software-Engineering-Project-Work.git
-cd NexChat-Group8-BSc-Software-Engineering-Project-Work
-````
+ChatHistory (auto-created at runtime)
 
----
+Client
 
-### 🖥️ 2. Run Server
+Program.cs
 
-```bash
-cd Server
-dotnet restore
-dotnet run
-```
+Client.csproj
 
-The server will start on:
+README file
 
-```
-ws://localhost:5000/ws/
-```
+.gitignore
 
----
+Both the Server and Client are console-based applications that communicate using WebSockets.
 
-### 💻 3. Run Client (same machine)
+Prerequisites
 
-Open a new terminal:
+Before running the application, ensure the following are installed:
 
-```bash
-cd Client
-dotnet restore
-dotnet run
-```
+.NET SDK version 6.0 or higher
 
-* Enter a **unique username** when prompted
-* Repeat in additional terminals for more clients
+A supported operating system (Windows, macOS, or Linux)
 
----
+Network connectivity for multi-machine execution
 
-### 🌐 4. Network Setup (Multiple Computers)
+Setup and Run Instructions
 
-If running clients on other machines:
+Step 1: Clone the Repository
 
-1. **Update client WebSocket URL** in `Client/Program.cs`:
-
-```csharp
-await socket.ConnectAsync(new Uri("ws://SERVER_IP:5000/ws/"), ...);
-```
-
-2. Open **port 5000** in firewall
-3. Ensure server IP is reachable
-
----
-
-## 🧑‍💻 Usage Guide
-
-When a client connects:
-
-* Main menu appears with options
-
-  * Private chat
-  * Group creation
-  * Join group
-  * View status
-  * Exit
-
-**Messaging**
-
-* Type messages to send
-* Enter commands (e.g., B to go back)
-* Offline messages delivered when users reconnect
-
----
-
-## 🧠 Distributed Concepts Demonstrated
-
-* **Message Passing:** WebSocket based communication
-* **Unicast & Multicast Delivery**
-* **Fault Detection:** Heartbeat monitoring
-* **Reliable Messaging:** Message queuing & persistence ([GitHub][1])
-
----
-
-## ⚠️ Known Limitations
-
-* Central server — single point of failure
-* No encryption
-* JSON-based persistence not scalable
-
----
-
-## 🛠 Future Improvements
-
-* Database integration (e.g., SQLite/MySQL)
-* End-to-end encryption
-* Server clustering
-* Web/desktop UIs
-
----
-
-## 👩‍💻 Development Team
-
-**Group 8 – BSc Software Engineering**
-
-* Distributed Systems Specialists
-* Network Communication & Software Design
-
----
-
-## 🧾 License
-
-This project uses the MIT License.
-
----
-
-**Thank you for trying NexChat — real-time distributed communication built with reliability in mind!**
-
-```
-
----
-
-If you want, I can also provide:
-
-✅ A **short formal report (2–3 pages)** matching this README  
-✅ A **system architecture diagram (PNG/SVG)**  
-✅ A **slide deck for your presentation**
-
-Just tell me what you need next!
-::contentReference[oaicite:6]{index=6}
-```
-
-[1]: https://github.com/kyaotey/NexChat-Group8-BSc-Software-Engineering-Project-Work.git "GitHub - kyaotey/NexChat-Group8-BSc-Software-Engineering-Project-Work"
+Run the following command in your terminal or command prompt:
