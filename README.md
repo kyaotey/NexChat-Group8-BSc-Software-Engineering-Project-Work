@@ -1,72 +1,81 @@
-Here’s a **professional and user-friendly `README.md`** you can use for your **NexChat-Group8-BSc-Software-Engineering-Project-Work** repository. It includes a clear **project overview**, **features**, and **step-by-step setup instructions** so anyone can run your project locally.
+Perfect — thanks for the screenshot 👍
+Based on **your actual project structure**, I’ve **rewritten and aligned the README** so it matches **exactly what your repo contains**:
+
+Folders you have:
+
+* `websocket` → **Server**
+* `websocket.client` → **Client 1**
+* `websocket.client2` → **Client 2**
+* `websocket.sln` → Solution file
+
+You can **copy-paste this directly** into `README.md`.
 
 ---
 
-# NexChat — Real-Time Distributed Chat System
+# NexChat – Real-Time WebSocket Chat Application
 
-**NexChat** is a real-time distributed chat application built as a project for **Group 8 — BSc Software Engineering**. It provides instant messaging over networks using a **client–server model with WebSockets** for fast, two-way communication.
-
-## 📌 Project Overview
-
-NexChat enables users to:
-
-* **Send and receive messages instantly** via WebSocket connections
-* **Chat privately (1-on-1)** or in **groups**
-* Track **delivery and read status**
-* Persist chat history locally
-* Handle **multiclient communication** over the network
-
-This application is modular and works by running a **server** program and multiple **client** terminals that connect to it.
+NexChat is a **real-time distributed chat application** developed as part of **Group 8 – BSc Software Engineering Project Work**.
+The system uses a **client–server architecture** built with **WebSockets** to enable fast and reliable communication between multiple users.
 
 ---
 
-## 🚀 Features
+## 📌 Project Description
 
-✔ Real-time messaging using WebSockets
-✔ Private and group chat support
-✔ Persistent chat logs
-✔ Delivery & read notifications
-✔ Clean command-line interface
-✔ Works across local network or single computer
+NexChat allows users to connect to a central server and exchange messages instantly.
+The project demonstrates key concepts in **network programming**, **distributed systems**, and **real-time communication**.
 
----
+The system is composed of:
 
-## 🛠️ Technologies Used
-
-* **C# / .NET** (Console apps)
-* **WebSockets** for network communication
-* JSON for chat history storage
-* Cross-platform support (Windows / macOS / Linux)
+* One **WebSocket Server**
+* Multiple **Client applications**
 
 ---
 
-## 📁 Repository Structure
+## 📂 Project Structure
 
 ```
 /
-├── Server/                  # WebSocket server application
-├── Client/                  # Chat client program
-├── websocket.sln            # Visual Studio / .NET solution
+├── websocket/               # WebSocket Server application
+├── websocket.client/        # Client application (Client 1)
+├── websocket.client2/       # Client application (Client 2)
+├── websocket.sln            # Visual Studio solution file
 ├── .gitignore
+├── .gitattributes
 └── README.md
 ```
 
 ---
 
-## 🧑‍💻 Getting Started — Setup on Your Computer
+## 🚀 Features
 
-These steps assume you want to run NexChat **locally** on your machine.
-
-### 📌 Prerequisites
-
-Make sure you have:
-
-✔ **.NET 6.0 SDK or higher** installed
-✔ A terminal/command prompt (PowerShell, Bash, etc.)
-
-You can download .NET here: [https://dotnet.microsoft.com/download/](https://dotnet.microsoft.com/download/)
+* Real-time messaging using WebSockets
+* Multiple client support
+* Client–server communication model
+* Console-based user interface
+* Demonstrates distributed systems concepts
 
 ---
+
+## 🛠️ Technologies Used
+
+* **C#**
+* **.NET (Console Applications)**
+* **WebSocket protocol**
+* **Visual Studio / .NET CLI**
+
+---
+
+## 🧑‍💻 System Requirements
+
+Before running the project, ensure you have:
+
+* **.NET 6.0 SDK or higher**
+* **Visual Studio** (recommended) or any C# compatible IDE
+* A terminal or command prompt
+
+---
+
+## ⚙️ How to Set Up and Run the Project
 
 ### 1️⃣ Clone the Repository
 
@@ -77,90 +86,121 @@ cd NexChat-Group8-BSc-Software-Engineering-Project-Work
 
 ---
 
-### 2️⃣ Run the Server
+### 2️⃣ Open the Solution (Recommended)
 
-Navigate to the server project and start it:
+Open `websocket.sln` using **Visual Studio**.
+
+This loads:
+
+* The server project
+* Both client projects
+
+---
+
+### 3️⃣ Run the Server
+
+Using terminal:
 
 ```bash
-cd Server
+cd websocket
 dotnet restore
 dotnet run
 ```
 
-💡 This starts the WebSocket server (default port **5000**).
+✔ The server will start and listen for incoming WebSocket connections.
 
 ---
 
-### 3️⃣ Run One or More Clients
+### 4️⃣ Run the Clients
 
-Open *another* terminal window for each user and run:
+Open **separate terminal windows** for each client.
+
+#### Client 1
 
 ```bash
-cd Client
+cd websocket.client
 dotnet restore
 dotnet run
 ```
 
-Each client will connect to the server and prompt for a **username**.
+#### Client 2
+
+```bash
+cd websocket.client2
+dotnet restore
+dotnet run
+```
+
+✔ Each client connects to the server and can send/receive messages.
 
 ---
 
-### 4️⃣ Connect & Chat
+## 💬 How the System Works
 
-Once clients are running:
-
-✔ Enter unique usernames
-✔ Create or join chat groups
-✔ Send messages in real time
-✔ See message delivery status
+1. The **server** starts and listens for connections
+2. Clients connect to the server using WebSockets
+3. Messages sent by one client are relayed through the server
+4. Other connected clients receive the messages in real time
 
 ---
 
-## 🌐 Network Setup (Optional)
+## 🧪 Testing the Application
 
-To run across computers on the same network:
-
-1. Modify the server address in `Client/Program.cs` to use your server’s local IP
-2. Ensure **port 5000** is open on your firewall/router
-3. Clients connect using `ws://YOUR_SERVER_IP:5000/ws`
+* Run the server first
+* Run at least two clients
+* Send messages from one client and observe real-time delivery on the other
 
 ---
 
-## 📦 Contribution Guide
+## 🛠️ Troubleshooting
 
-Contributions are welcome! Here are the steps:
+**Server not responding**
 
-1. Fork this repository
-2. Create a new branch (`feature/xyz`)
-3. Make your changes
-4. Commit with clear messages
-5. Push to your fork
-6. Open a Pull Request
+* Ensure the server is running before starting clients
 
----
+**Connection issues**
 
-## 🛟 Troubleshooting
-
-**🔌 Connection refused**
-✔ Ensure the server is running before starting clients
-✔ Check that the firewall isn’t blocking port 5000
-
-**🚫 Duplicate username**
-✔ Always use unique usernames per client
+* Confirm server address and port are correct
+* Disable firewall temporarily if needed
 
 ---
 
-## 📄 License
+## 📚 Academic Relevance
 
-This project is licensed under **MIT License**.
+This project demonstrates:
+
+* Client–server architecture
+* Real-time communication
+* Distributed systems principles
+* Network programming using WebSockets
 
 ---
 
 ## 👥 Team
 
-Group 8 — BSc Software Engineering
-Distributed Systems & Network Communication Specialists
+**Group 8**
+BSc Software Engineering
+Ghana Communication Technology University (GCTU)
 
 ---
 
-If you want, I can also generate **a detailed setup script**, **environment diagrams**, or **quick start GIF/screenshots**!
+## 📄 License
+
+This project is for **academic purposes**.
+
+---
+
+### ✅ Final reassurance
+
+✔ Matches your folder names
+✔ Matches your solution file
+✔ Clean for lecturers
+✔ Professional GitHub look
+
+If you want, I can:
+
+* Add **architecture diagram text**
+* Add **use-case section**
+* Simplify wording further (very exam-friendly)
+
+Just tell me 👌
