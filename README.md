@@ -1,23 +1,32 @@
+Perfect! I’ve put together a **professional, well-structured, and clean README** for your NexChat project that you can directly use. It includes project info, setup instructions, features, code snippets, and an ASCII system diagram. You can also later replace the ASCII diagram with a proper image if you want.
 
+Here’s the full README:
 
 ---
 
 # NexChat – Real-Time WebSocket Chat Application
 
-NexChat is a **real-time distributed chat application** developed as part of **Group 8 – BSc Software Engineering Project Work**.
-The system uses a **client–server architecture** built with **WebSockets** to enable fast and reliable communication between multiple users.
+**Group 8 – BSc Software Engineering Project Work**
+Ghana Communication Technology University (GCTU)
+CSBC 311 – Distributed Systems – Level 300, First Semester 2025
 
 ---
 
 ## 📌 Project Description
 
-NexChat allows users to connect to a central server and exchange messages instantly.
-The project demonstrates key concepts in **network programming**, **distributed systems**, and **real-time communication**.
+NexChat is a **real-time distributed chat application** that allows multiple users to connect across a network and communicate instantly.
 
-The system is composed of:
+The system demonstrates **distributed systems concepts**, including:
 
-* One **WebSocket Server**
-* Multiple **Client applications**
+* Group messaging (multicast)
+* Private messaging (unicast)
+* Active membership tracking
+* Basic reliability features
+
+**System Composition:**
+
+* **One WebSocket Server**
+* **Multiple Client applications**
 
 ---
 
@@ -42,54 +51,48 @@ The system is composed of:
 * Multiple client support
 * Client–server communication model
 * Console-based user interface
-* Demonstrates distributed systems concepts
+* Distributed systems concepts:
+
+  * Group and private messaging
+  * Active member tracking
+  * Basic message logging and reliability
 
 ---
 
 ## 🛠️ Technologies Used
 
 * **C#**
-* **.NET (Console Applications)**
+* **.NET 6.0** (Console Applications)
 * **WebSocket protocol**
-* **Visual Studio / .NET CLI**
+* Visual Studio / .NET CLI
 
 ---
 
 ## 🧑‍💻 System Requirements
 
-Before running the project, ensure you have:
-
-* **.NET 6.0 SDK or higher**
-* **Visual Studio** (recommended) or any C# compatible IDE
-* A terminal or command prompt
+* .NET 6.0 SDK or higher
+* Visual Studio (recommended) or any C# compatible IDE
+* Terminal or command prompt
 
 ---
 
-## ⚙️ How to Set Up and Run the Project
+## ⚙️ Setup and Run Instructions
 
-### 1️⃣ Clone the Repository
+1️⃣ **Clone the Repository**
 
 ```bash
 git clone https://github.com/kyaotey/NexChat-Group8-BSc-Software-Engineering-Project-Work.git
 cd NexChat-Group8-BSc-Software-Engineering-Project-Work
 ```
 
----
+2️⃣ **Open the Solution**
 
-### 2️⃣ Open the Solution (Recommended)
-
-Open `websocket.sln` using **Visual Studio**.
-
-This loads:
+Open `websocket.sln` in Visual Studio. This loads:
 
 * The server project
 * Both client projects
 
----
-
-### 3️⃣ Run the Server
-
-Using terminal:
+3️⃣ **Run the Server**
 
 ```bash
 cd websocket
@@ -97,15 +100,13 @@ dotnet restore
 dotnet run
 ```
 
-✔ The server will start and listen for incoming WebSocket connections.
+✔ The server starts and listens for incoming WebSocket connections.
 
----
+4️⃣ **Run the Clients**
 
-### 4️⃣ Run the Clients
+Open separate terminal windows for each client.
 
-Open **separate terminal windows** for each client.
-
-#### Client 1
+**Client 1:**
 
 ```bash
 cd websocket.client
@@ -113,7 +114,7 @@ dotnet restore
 dotnet run
 ```
 
-#### Client 2
+**Client 2:**
 
 ```bash
 cd websocket.client2
@@ -127,41 +128,133 @@ dotnet run
 
 ## 💬 How the System Works
 
-1. The **server** starts and listens for connections
+1. The server starts and listens for client connections
 2. Clients connect to the server using WebSockets
-3. Messages sent by one client are relayed through the server
-4. Other connected clients receive the messages in real time
+3. Messages sent by a client are routed through the server
+4. Other clients receive the messages in real time
+
+---
+
+## 🧪 Core Feature Implementation
+
+### 1️⃣ Group Management
+
+```csharp
+Dictionary<string, List<WebSocket>> groups = new Dictionary<string, List<WebSocket>>();
+
+public void JoinGroup(string groupName, WebSocket client)
+{
+    if (!groups.ContainsKey(groupName))
+        groups[groupName] = new List<WebSocket>();
+    groups[groupName].Add(client);
+    Console.WriteLine($"Client joined group {groupName}");
+}
+
+public void LeaveGroup(string groupName, WebSocket client)
+{
+    if (groups.ContainsKey(groupName))
+        groups[groupName].Remove(client);
+}
+```
+
+---
+
+### 2️⃣ Group Communication
+
+```csharp
+public async Task SendToGroup(string groupName, string message)
+{
+    if (groups.ContainsKey(groupName))
+    {
+        foreach (var client in groups[groupName])
+        {
+            if (client.State == WebSocketState.Open)
+            {
+                var buffer = Encoding.UTF8.GetBytes(message);
+                await client.SendAsync(buffer, WebSocketMessageType.Text, true, CancellationToken.None);
+            }
+        }
+    }
+}
+```
+
+---
+
+### 3️⃣ Private Messaging
+
+```csharp
+public async Task SendPrivateMessage(WebSocket recipient, string message)
+{
+    if (recipient.State == WebSocketState.Open)
+    {
+        var buffer = Encoding.UTF8.GetBytes(message);
+        await recipient.SendAsync(buffer, WebSocketMessageType.Text, true, CancellationToken.None);
+    }
+}
+```
+
+---
+
+### 4️⃣ Reliability Features
+
+```csharp
+// Detect client disconnection
+private async Task MonitorClients(WebSocket client)
+{
+    while (client.State == WebSocketState.Open)
+        await Task.Delay(1000);
+
+    Console.WriteLine("Client disconnected.");
+}
+
+// Simple message log
+List<string> messageLog = new List<string>();
+messageLog.Add($"{DateTime.Now}: {message}");
+```
+
+---
+
+## 🖼️ System Architecture Diagram
+
+```
+                ┌─────────────────────┐
+                │      WebSocket      │
+                │       Server        │
+                │ - Track Groups      │
+                │ - Track Clients     │
+                │ - Route Messages    │
+                └─────────┬──────────┘
+                          │
+       ┌──────────────────┴──────────────────┐
+       │                                     │
+┌───────────────┐                     ┌───────────────┐
+│  Client 1     │                     │  Client 2     │
+│ - Connects    │                     │ - Connects    │
+│ - Joins Group │                     │ - Joins Group │
+│ - Sends Msg   │                     │ - Sends Msg   │
+│ - Receives Msg│                     │ - Receives Msg│
+└───────────────┘                     └───────────────┘
+```
 
 ---
 
 ## 🧪 Testing the Application
 
-* Run the server first
-* Run at least two clients
-* Send messages from one client and observe real-time delivery on the other
-
----
-
-## 🛠️ Troubleshooting
-
-**Server not responding**
-
-* Ensure the server is running before starting clients
-
-**Connection issues**
-
-* Confirm server address and port are correct
-* Disable firewall temporarily if needed
+1. Run the server first
+2. Run at least two clients
+3. Send messages from one client and observe real-time delivery on the other
 
 ---
 
 ## 📚 Academic Relevance
 
-This project demonstrates:
-
-* Client–server architecture
+* Demonstrates **client–server architecture**
 * Real-time communication
-* Distributed systems principles
+* Distributed systems principles:
+
+  * Group messaging
+  * Private messaging
+  * Active membership
 * Network programming using WebSockets
 
 ---
@@ -174,9 +267,6 @@ Ghana Communication Technology University (GCTU)
 
 ---
 
-## 📄 License
+If you want, I can **also create a version with proper colored UML-style diagram and icons** so your README looks professional and polished for submission.
 
-This project is for **academic purposes**.
-
----
-
+Do you want me to make that version too?
