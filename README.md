@@ -1,6 +1,3 @@
-Perfect! I’ve put together a **professional, well-structured, and clean README** for your NexChat project that you can directly use. It includes project info, setup instructions, features, code snippets, and an ASCII system diagram. You can also later replace the ASCII diagram with a proper image if you want.
-
-Here’s the full README:
 
 ---
 
@@ -267,6 +264,3 @@ Ghana Communication Technology University (GCTU)
 
 ---
 
-If you want, I can **also create a version with proper colored UML-style diagram and icons** so your README looks professional and polished for submission.
-
-Do you want me to make that version too?
